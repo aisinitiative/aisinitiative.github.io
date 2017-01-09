@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>AIS Prevention and Removal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/map.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					<!-- Logo -->
+					<h1><a href="index.html" id="logo">Aquatic Invasive Species Initiative</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="index.html">Home</a></li>
+								<li>
+									<a href="#">About</a>
+									<ul>
+										<li><a href="#">Who We Are</a></li>
+										<li><a href="#">What We Do</a></li>
+										<li><a href="#">Help Out</a></li>
+									</ul>
+								</li>
+								<li><a href="#connection">Contact</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Banner -->
+				<section id="banner">
+					<header>
+						<h2><em>Learn how </em>you can help</h2>
+						<a href="#" class="button">Click Here</a>
+					</header>
+				</section>
+
+			<!-- Highlights -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div class="row 200%">
+							<section class="4u 12u(narrower)">
+								<div class="box highlight">
+									<i class="icon major fa-question"></i>
+									<h3>Learn</h3>
+									<p>Click here for various lessons, games, and information on the invasive species in Lake Minnetonka.</p>
+								</div>
+							</section>
+							<section class="4u 12u(narrower)">
+								<div class="box highlight">
+									<a href="#connection"><i class="icon major fa-envelope"></i></a>
+									<h3>Connect</h3>
+									<p>If you want to get involved in helping to clean Lake Minnetonka, click here to contact us.</p>
+								</div>
+							</section>
+							<section class="4u 12u(narrower)">
+								<div class="box highlight">
+									<i class="icon major fa-globe"></i>
+									<h3>Act</h3>
+									<p>Click here to find out where you can make an impact.</p>
+								</div>
+							</section>
+						</div>
+					</div>
+				</section>
+
+				<section id="cta" class="wrapper style3">
+					<div class="container">
+						<header>
+							<h2>Learn About Invasive Species!</h2>
+						</header>
+						<figure>
+							<a href="assets/powerpoints/ZebraMussels.pdf"><img style="margin:20px" src="images/zebramussel.jpg"/></a>
+							<figcaption>Zebra Mussels</figcaption>
+						</figure>
+						<figure>
+							<a href="assets/powerpoints/Pondweed.pdf"><img style="width:220px;height:154px;margin:20px" src="images/pondweed.jpg"/></a>
+							<figcaption>Curly-leaf Pondweed</figcaption>
+						</figure>
+						<figure>
+							<a href="assets/powerpoints/PurpLoose.pdf"><img style="width:220px;height:154px;margin:20px" src="images/loose.jpg"/></a>
+							<figcaption>Purple Loosestrife</figcaption>
+						</figure>
+						<figure>
+							<a href="assets/powerpoints/YellowIris.pdf"><img style="width:220px;height:154px;margin:20px" src="images/iris.jpg"/></a>
+							<figcaption>Yellow Iris</figcaption>
+						</figure>
+					</div>
+				</section>
+
+			<!-- Gigantic Heading -->
+			      <div id="map"></div>
+						 <script>
+							 function initMap() {
+								 var mapOptions = {
+									 zoom: 16,
+									 draggable: false,
+									 scrollwheel:false,
+									 navigationControl: false,
+									 mapTypeControl: false,
+									 scaleControl: false,
+									 center: new google.maps.LatLng(44.9660232,-93.5037765),
+									 mapTypeId: google.maps.MapTypeId.ROAD
+								 };
+								 map = new google.maps.Map(document.getElementById('map'),
+										 mapOptions);
+								 new google.maps.Marker({map:map,position:map.getCenter()})
+								 google.maps.event.addListener(map, 'center_changed', function() {
+
+							 //a value to determine whether the map has been resized
+							 var size=[this.getDiv().offsetWidth,this.getDiv().offsetHeight].join('x');
+
+							 //when the center has changed, but not the size of the map
+							 if(!this.get('size') || size===this.get('size')){
+									this.setValues({size:size,_center:this.getCenter()});
+									google.maps.event.trigger(map, "resize");
+							 }
+							 //when the map has been resized
+							 else{
+								 google.maps.event.addListenerOnce(this,'idle',function(){
+									 this.setValues({size:size,center:this.get('_center')});});
+							 }
+						 });
+						 //trigger the resize-event to initialize the size and _center-values
+						 google.maps.event.trigger(map,'center_changed',{});
+
+							 }
+						 </script>
+						 <script async defer
+								 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBn24MOXjmCo6AoBOc1tHWIb0SmeqO-9EI&callback=initMap">
+						 </script>
+
+			<!-- CTA -->
+				<section id="cta" class="wrapper style3">
+					<div class="container">
+						<header>
+							<h2>Located at the Wayzata Sailing Center:</h2><h3>456 Arlington Cir, Wayzata, MN 55391</h3>
+						</header>
+					</div>
+				</section>
+
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<section class="3u 6u(narrower) 12u$(mobilep)">
+								<h3>Games</h3>
+								<ul class="links">
+									<li><a href="assets/games/GreenRoverCLP.pdf">Green Rover</a></li>
+									<li><a href="assets/games/PurpleParachutePL.pdf">Purple Parachute</a></li>
+									<li><a href="assets/games/YellowTagYI.pdf">Yellow Tag</a></li>
+									<li><a href="assets/games/ZebrasacrosstheOceanZM.pdf">Zebras Across the Ocean</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u$(narrower) 12u$(mobilep)">
+								<h3>More Info</h3>
+								<ul class="links">
+									<li><a href="#">Duis neque nisi dapibus</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum accumsan sed</a></li>
+									<li><a href="#">Mattis et sed accumsan</a></li>
+								</ul>
+							</section>
+							<section class="6u 12u(narrower)">
+								<h3 id="connection">Connect</h3>
+								<form action="https://formspree.io/wjwalcher@gmail.com" method="POST">
+									<div class="row 50%">
+										<div class="6u 12u(mobilep)">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="6u 12u(mobilep)">
+											<input type="email" name="_replyto" id="email" placeholder="Email" />
+										</div>
+									</div>
+									<div class="row 50%">
+										<div class="12u">
+											<textarea name="message" id="message" placeholder="Message" rows="5"></textarea>
+										</div>
+									</div>
+									<div class="row 50%">
+										<div class="12u">
+											<ul class="actions">
+												<li><input type="submit" class="button alt" value="Send" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</section>
+						</div>
+					</div>
+
+					<!-- Icons -->
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						</ul>
+
+					<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="http://localhost:35729/livereload.js"></script>
+	</body>
+</html>
