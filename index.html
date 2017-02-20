@@ -28,12 +28,7 @@
 							<ul>
 								<li class="current"><a href="index.html">Home</a></li>
 								<li>
-									<a href="#">About</a>
-									<ul>
-										<li><a href="#">Who We Are</a></li>
-										<li><a href="#">What We Do</a></li>
-										<li><a href="#">Help Out</a></li>
-									</ul>
+									<a href="#" class="js-open-modal" data-modal-id="popup">About</a>
 								</li>
 								<li><a href="#connection">Contact</a></li>
 							</ul>
@@ -41,11 +36,24 @@
 
 				</div>
 
+<div id="popup" class="modal-box">
+  <header>
+    <a href="#" class="js-modal-close close">×</a>
+    <h3>About the Project</h3>
+  </header>
+  <div class="modal-body">
+    <p>This website was created as a part of Jack Wall’s Eagle Scout project. This project entailed pulling Aquatic Invasive Species out of the water for the Wayzata Community Sailing Center, doing research on various species in Lake Minnetonka, and creating a website on it for public use. I did this project because I basically grew up boating on Lake Minnetonka and I am very passionate about taking care of it. I hope that the whole community is willing to attempt to preserve it. I have created lesson plans and presentations with the help of several other volunteers in an attempt to make the public more aware of what has invaded Lake Minnetonka, what they do to local species and what people can do about it. There are several links on the website to the presentations and lesson plans, along with links to other websites that have a similar goal. I hope you find this website useful, and continue to care for Lake Minnetonka!</p>
+  </div>
+  <footer>
+    <a href="#" class="js-modal-close">Close</a>
+  </footer>
+</div>
+
 			<!-- Banner -->
 				<section id="banner">
 					<header>
 						<h2><em>Learn how </em>you can help</h2>
-						<a href="#" class="button">Click Here</a>
+						<a href="#connection" class="button">Click Here</a>
 					</header>
 				</section>
 
@@ -81,10 +89,10 @@
 				<section id="cta" class="wrapper style3">
 					<div class="container">
 						<header>
-							<h2>Learn About Invasive Species!</h2>
+							<h2>Click on a Picture to Learn About Invasive Species!</h2>
 						</header>
 						<figure>
-							<a href="assets/powerpoints/ZebraMussels.pdf"><img style="margin:20px" src="images/zebramussel.jpg"/></a>
+							<a href="assets/powerpoints/ZebraMussels.pdf"><img style="margin:20px" src="images/ZebraMussel.jpg"/></a>
 							<figcaption>Zebra Mussels</figcaption>
 						</figure>
 						<figure>
@@ -154,6 +162,8 @@
 				</section>
 
 
+
+
 			<!-- Footer -->
 				<div id="footer">
 					<div class="container">
@@ -170,15 +180,16 @@
 							<section class="3u 6u$(narrower) 12u$(mobilep)">
 								<h3>More Info</h3>
 								<ul class="links">
-									<li><a href="#">Duis neque nisi dapibus</a></li>
-									<li><a href="#">Sed et dapibus quis</a></li>
-									<li><a href="#">Rutrum accumsan sed</a></li>
-									<li><a href="#">Mattis et sed accumsan</a></li>
+									<li><a href="http://www.dnr.state.mn.us/index.html">Minnesota DNR</a></li>
+									<li><a href="https://www.fs.fed.us/">US Forest Service</a></li>
+									<li><a href="http://www.hennepinsheriff.org/water-patrol">Lake Minnetonka Water Patrol</a></li>
+									<li><a href="http://lmcd.org/">Lake Minnetonka Conservation District</a></li>
+									<li><a href="https://minnehahacd.org/">Minnehaha Conservation District</a></li>
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
-								<h3 id="connection">Connect</h3>
-								<form action="https://formspree.io/wjwalcher@gmail.com" method="POST">
+								<h3 id="connection">Contact</h3>
+								<form action="https://formspree.io/jack.wall@gopalions.org" method="POST">
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
 											<input type="text" name="name" id="name" placeholder="Name" />
@@ -205,15 +216,15 @@
 					</div>
 
 					<!-- Icons -->
-						<ul class="icons">
+					<!--	<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						</ul>
+						</ul> -->
 
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy;2017 - Aquatic Invasive Species Initiative. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 
@@ -228,6 +239,36 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script>
+			$(function(){
+			var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
+			  $('a[data-modal-id]').click(function(e) {
+			    e.preventDefault();
+			    $("body").append(appendthis);
+			    $(".modal-overlay").fadeTo(500, 0.7);
+			    //$(".js-modalbox").fadeIn(500);
+			    var modalBox = $(this).attr('data-modal-id');
+			    $('#'+modalBox).fadeIn($(this).data());
+			  });
+
+
+			$(".js-modal-close, .modal-overlay").click(function() {
+			  $(".modal-box, .modal-overlay").fadeOut(500, function() {
+			    $(".modal-overlay").remove();
+			  });
+			});
+
+			$(window).resize(function() {
+			  $(".modal-box").css({
+			    top: ($(window).height() - $(".modal-box").outerHeight()) / 2,
+			    left: ($(window).width() - $(".modal-box").outerWidth()) / 2
+			  });
+			});
+
+			$(window).resize();
+
+			});
+			</script>
 			<script src="http://localhost:35729/livereload.js"></script>
 	</body>
 </html>
